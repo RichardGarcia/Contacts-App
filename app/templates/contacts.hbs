@@ -1,0 +1,33 @@
+<h1>contacts</h1>
+
+
+{{#each model as |item|}}
+	<li>{{item.name}} 
+
+	{{#if isShowingPhoneNumber}}
+		, {{item.phone}}
+	{{else}}
+		****-****-****
+	{{/if}}
+
+</li>
+{{/each}}
+
+{{!-- <button class="btn btn-danger" {{action "toggleShowPhoneNumber"}}>Show phone number</button> --}}
+
+<button {{action "toggleShowPhoneNumber"}} class="btn {{if isShowingPhoneNumber 'btn-danger' 'btn-success'}}">
+	{{if isShowingPhoneNumber 'Hide' 'Show'}} phone number
+</button>
+
+{{name}}, {{phone}}
+
+{{input type="text" value=name placeholder="name"}}
+{{input type="text" value=phone placeholder="phone"}}
+
+<button {{action "submit"}}>Add</button>
+
+{{!-- 
+	bind-attr??? 
+	https://github.com/mozilla/localForage
+	https://github.com/genkgo/ember-localforage-adapter
+--}}
