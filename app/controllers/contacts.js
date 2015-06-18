@@ -2,6 +2,10 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 	
+	
+	nameFromInput: ' ',
+	phoneFromInput: ' ',
+
 	isShowingPhoneNumber: false,
 
 	actions: {
@@ -13,18 +17,24 @@ export default Ember.Controller.extend({
 		},
 
 		submit() {
-			var nameFromInput = this.get('name');
-			var phoneFromInput = this.get('phone');
+			var newName = this.get('nameFromInput');
+			var newPhone = this.get('phoneFromInput');
 
 			var newContact = this.store.createRecord('contact', {
-				name: nameFromInput,
-				phone: phoneFromInput
+				name: newName,
+				phone: newPhone
 			});
 
 			newContact.save();
 
-			this.set('name', '');
-			this.set('phone', '');
-		}
+			this.set('nameFromInput', '');
+			this.set('phoneFromInput', '');
+		},
+
+	deleteContact(item) {
+		item.destroyRecord();
+	}
+
+
 	}
 });

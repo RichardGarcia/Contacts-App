@@ -4,6 +4,8 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'contacts',
     environment: environment,
+    contentSecurityPolicy: { 'connect-src': "'self' wss://*.firebaseio.com" },
+    firebase: 'https://flickering-inferno-4049.firebaseIO.com',
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {
