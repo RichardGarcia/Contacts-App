@@ -1,5 +1,63 @@
-<h1>contacts</h1>
+<h2>Contacts</h2>
 
+<div class="container">
+	<div class="row">
+		<table class="table table-bordered table-responsive">
+			<thead>
+				<tr>
+				<th>Full name</th>
+				<th>Phone number</th>
+				<th></th>
+			</tr>
+			</thead>
+			<tbody>
+
+			{{#each model as |item|}}
+
+			<tr>
+				<td>{{item.name}}</td>
+				<td>
+				{{#if isShowingPhoneNumber}}
+					{{item.phone}}
+				{{else}}
+					*** - *** - ***
+				{{/if}}
+				</td>
+				<td><button>X</button></td>
+			</tr>
+
+			{{/each}}
+			<tr>
+				<td>{{name}}</td>
+				<td>{{phone}}</td>
+				<td>&nbsp;</td>
+			</tr>
+
+			</tbody>
+		</table>
+	</div>
+
+	<div class="row">
+		<button {{action "toggleShowPhoneNumber"}} class="btn {{if isShowingPhoneNumber 'btn-danger' 'btn-success'}}">
+			{{if isShowingPhoneNumber 'Hide' 'Show'}} phone number
+		</button>
+	</div>
+</div>
+
+<div>
+	<h3>Add new record</h3>
+	<div class="row marginBottom15">
+		<div class="col-md-4">{{input type="text" size="43" value=name placeholder="Enter name"}}</div>
+		<div class="col-md-4">{{input type="text" size="43" value=phone placeholder="Enter phone number"}}</div>
+		<div class="col-md-4"><button {{action "submit"}}>Add</button></div>
+	</div>
+</div>
+
+
+
+
+{{!-- 
+<ul>
 
 {{#each model as |item|}}
 	<li>{{item.name}} 
@@ -10,21 +68,14 @@
 		****-****-****
 	{{/if}}
 
-</li>
+	</li>
+
 {{/each}}
+</ul>
 
-{{!-- <button class="btn btn-danger" {{action "toggleShowPhoneNumber"}}>Show phone number</button> --}}
+ --}}
 
-<button {{action "toggleShowPhoneNumber"}} class="btn {{if isShowingPhoneNumber 'btn-danger' 'btn-success'}}">
-	{{if isShowingPhoneNumber 'Hide' 'Show'}} phone number
-</button>
 
-{{name}}, {{phone}}
-
-{{input type="text" value=name placeholder="name"}}
-{{input type="text" value=phone placeholder="phone"}}
-
-<button {{action "submit"}}>Add</button>
 
 {{!-- 
 	bind-attr??? 
