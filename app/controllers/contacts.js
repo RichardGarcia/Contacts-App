@@ -24,9 +24,9 @@ export default Ember.Controller.extend({
 			var newName = this.get('nameFromInput');
 			var newPhone = this.get('phoneFromInput');
 
-			if (Ember.isBlank(newName) === '' || Ember.isBlank(newPhone) === '') {
-				return;
-			};
+			// if (Ember.isBlank(newName) === '' || Ember.isBlank(newPhone) === '') {
+			// 	return;
+			// };
 
 			var newContact = this.store.createRecord('contact', {
 				name: newName,
