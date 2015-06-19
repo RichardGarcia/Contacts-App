@@ -6,6 +6,10 @@ export default Ember.Controller.extend({
 	nameFromInput: ' ',
 	phoneFromInput: ' ',
 
+	// nothingThere: Ember.computed.empty('nothingThere');
+	// fix this!!
+
+
 	isShowingPhoneNumber: false,
 
 	actions: {
@@ -19,6 +23,10 @@ export default Ember.Controller.extend({
 		submit() {
 			var newName = this.get('nameFromInput');
 			var newPhone = this.get('phoneFromInput');
+
+			if (Ember.isBlank(newName) === '' || Ember.isBlank(newPhone) === '') {
+				return;
+			};
 
 			var newContact = this.store.createRecord('contact', {
 				name: newName,
