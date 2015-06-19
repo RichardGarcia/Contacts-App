@@ -1,0 +1,149 @@
+<h1>Contacts</h1>
+
+<p>Size: {{model.length}}</p>
+
+<table class="table table-bordered table-hover">
+
+  <thead>
+	<tr>
+	  <th>ID</th>
+	  <th>Name</th>
+	  <th>Phone
+		<button {{action "toggleShowPhoneNumber"}} class="btn btn-xs {{if isShowingPhoneNumber 'btn-danger' 'btn-success'}}">
+		  {{if isShowingPhoneNumber 'Hide' 'Show'}}
+		</button>
+	  </th>
+	  <th></th>
+	</tr>
+  </thead>
+  <tbody>
+	{{#each model key="id" as |item|}}
+	  <tr>
+		<td>{{item.id}}</td>
+		<td>{{item.name}}</td>
+		<td>{{#if isShowingPhoneNumber}}{{item.phone}}{{/if}}</td>
+		<td>
+		  <button class="btn btn-xs btn-danger" {{action "deleteContact" item}}>Delete</button>
+		</td>
+	  </tr>
+	{{else}}
+	  <tr><td colspan="4" class="text-center">Please add your first contact to the list</td></tr>
+	{{/each}}
+  </tbody>
+</table>
+
+<div class="row">
+  <div class="col-xs-3">
+	{{input type="text" value=nameFromInput size="100" placeholder="Enter a new name" class="form-control"}}
+  </div>
+
+  <div class="col-xs-3">
+	{{input type="text" value=phoneFromInput size="20" placeholder="Phone" class="form-control"}}
+  </div>
+
+  <button type="submit" class="btn btn-warning" {{action 'submit'}}>Add New Contact</button>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{!-- <h2>Contacts</h2>
+
+<div class="container">
+	<div class="row">
+		<table class="table table-bordered table-responsive">
+			<thead>
+				<tr>
+				<th>Full name</th>
+				<th>Phone number</th>
+				<th></th>
+			</tr>
+			</thead>
+			<tbody>
+
+			{{#each model as |item|}}
+
+			<tr>
+				<td>{{item.name}}</td>
+				<td>
+				{{#if isShowingPhoneNumber}}
+					{{item.phone}}
+				{{else}}
+					*** - *** - ***
+				{{/if}}
+				</td>
+				<td><button>X</button></td>
+			</tr>
+
+			{{/each}}
+			<tr>
+				<td>{{name}}</td>
+				<td>{{phone}}</td>
+				<td>&nbsp;</td>
+			</tr>
+
+			</tbody>
+		</table>
+	</div>
+
+	<div class="row">
+		<button {{action "toggleShowPhoneNumber"}} class="btn {{if isShowingPhoneNumber 'btn-danger' 'btn-success'}}">
+			{{if isShowingPhoneNumber 'Hide' 'Show'}} phone number
+		</button>
+	</div>
+</div>
+
+<div>
+	<h3>Add new record</h3>
+	<div class="row marginBottom15">
+		<div class="col-md-4">{{input type="text" size="43" value=name placeholder="Enter name"}}</div>
+		<div class="col-md-4">{{input type="text" size="43" value=phone placeholder="Enter phone number"}}</div>
+		<div class="col-md-4"><button {{action "submit"}}>Add</button></div>
+	</div>
+</div>
+ --}}
+
+
+
+{{!-- 
+<ul>
+
+{{#each model as |item|}}
+	<li>{{item.name}} 
+
+	{{#if isShowingPhoneNumber}}
+		, {{item.phone}}
+	{{else}}
+		****-****-****
+	{{/if}}
+
+	</li>
+
+{{/each}}
+</ul>
+
+ --}}
+
+
+
+{{!-- 
+	bind-attr??? 
+	https://github.com/mozilla/localForage
+	https://github.com/genkgo/ember-localforage-adapter
+
+
+watchman - shutdown.. 
+
+--}}
