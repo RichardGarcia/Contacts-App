@@ -3,8 +3,8 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
 	
 	
-	nameFromInput: ' ',
-	phoneFromInput: ' ',
+	// nameFromInput: ' ',
+	// phoneFromInput: ' ',
 
 	// nothingThere: Ember.computed.empty('nothingThere');
 	// fix this!!
