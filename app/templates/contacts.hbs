@@ -1,6 +1,7 @@
 <h1>Contacts</h1>
 
 <p>Size: {{model.length}}</p>
+<p>Contacts with email: {{contactsWithEmail}}</p>
 
 <table class="table table-bordered table-hover">
 
@@ -13,6 +14,7 @@
 		  {{if isShowingPhoneNumber 'Hide' 'Show'}}
 		</button>
 	  </th>
+	 <th>email address</th>
 	  <th></th>
 	</tr>
   </thead>
@@ -22,6 +24,7 @@
 		<td>{{item.id}}</td>
 		<td>{{item.name}}</td>
 		<td>{{#if isShowingPhoneNumber}}{{item.phone}}{{/if}}</td>
+		<td>{{item.email}}</td>
 		<td>
 		  <button class="btn btn-xs btn-danger" {{action "deleteContact" item}}>Delete</button>
 		</td>
@@ -41,9 +44,28 @@
 	{{input type="text" value=phoneFromInput size="20" placeholder="Phone" class="form-control"}}
   </div>
 
-  <button type="submit" class="btn btn-warning" {{action 'submit'}}>Add New Contact</button>
+  <div class="col-xs-3">
+	{{input type="text" value=emailFromInput size="50" placeholder="email address" class="form-control"}}
+  </div>
+
+  {{!-- <button type="submit" class="btn btn-warning" {{action 'addNewContact'}}>Add New Contact</button> --}}
+	<button type="submit" class="btn btn-warning" {{action 'addNewContact'}} disabled={{nothingThere}}>Add New Contact</button>
+
 </div>
 
+{{!-- 
+
+new ember data... 
+	- query, find -- new proposal.. 
+	- new API, REST,
+
+02/06/2015
+
+- loading pages.. 
+- query params..  - in url.. - http://localhost:4200/contacts?showthings=etc.. 
+- computer properties..
+
+ --}}
 
 
 
@@ -51,13 +73,7 @@
 
 
 
-
-
-
-
-
-
-
+{{!-- this is my old html design table... --}}
 
 {{!-- <h2>Contacts</h2>
 
