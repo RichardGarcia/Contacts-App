@@ -36,10 +36,13 @@ export default Ember.Controller.extend({
 	}.observes('nameFromInput'),
 
 
+
 	// do the dasherized function...
 
 	// check ember computed docs..
 	// check ember object model
+
+	// components 
 
 
 	actions: {

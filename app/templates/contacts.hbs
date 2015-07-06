@@ -3,6 +3,24 @@
 <p>Size: {{model.length}}</p>
 <p>Contacts with email: {{contactsWithEmail}}</p>
 
+<div class="row marginBottom15">
+  <div class="col-xs-3">
+	{{input type="text" value=nameFromInput size="100" placeholder="Enter a new name" class="form-control"}}
+  </div>
+
+  <div class="col-xs-3">
+	{{input type="text" value=phoneFromInput size="20" placeholder="Phone" class="form-control"}}
+  </div>
+
+  <div class="col-xs-3">
+	{{input type="text" value=emailFromInput size="50" placeholder="email address" class="form-control"}}
+  </div>
+
+  {{!-- <button type="submit" class="btn btn-warning" {{action 'addNewContact'}}>Add New Contact</button> --}}
+	<button type="submit" class="btn btn-warning" {{action 'addNewContact'}} disabled={{nothingThere}}>Add New Contact</button>
+</div>
+
+
 <table class="table table-bordered table-hover">
 
   <thead>
@@ -35,23 +53,7 @@
   </tbody>
 </table>
 
-<div class="row">
-  <div class="col-xs-3">
-	{{input type="text" value=nameFromInput size="100" placeholder="Enter a new name" class="form-control"}}
-  </div>
 
-  <div class="col-xs-3">
-	{{input type="text" value=phoneFromInput size="20" placeholder="Phone" class="form-control"}}
-  </div>
-
-  <div class="col-xs-3">
-	{{input type="text" value=emailFromInput size="50" placeholder="email address" class="form-control"}}
-  </div>
-
-  {{!-- <button type="submit" class="btn btn-warning" {{action 'addNewContact'}}>Add New Contact</button> --}}
-	<button type="submit" class="btn btn-warning" {{action 'addNewContact'}} disabled={{nothingThere}}>Add New Contact</button>
-
-</div>
 
 {{!-- 
 
