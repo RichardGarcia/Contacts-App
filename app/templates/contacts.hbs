@@ -3,55 +3,8 @@
 <p>Size: {{model.length}}</p>
 <p>Contacts with email: {{contactsWithEmail}}</p>
 
-<div class="row marginBottom15">
-  <div class="col-xs-3">
-	{{input type="text" value=nameFromInput size="100" placeholder="Enter a new name" class="form-control"}}
-  </div>
+{{outlet}}
 
-  <div class="col-xs-3">
-	{{input type="text" value=phoneFromInput size="20" placeholder="Phone" class="form-control"}}
-  </div>
-
-  <div class="col-xs-3">
-	{{input type="text" value=emailFromInput size="50" placeholder="email address" class="form-control"}}
-  </div>
-
-  {{!-- <button type="submit" class="btn btn-warning" {{action 'addNewContact'}}>Add New Contact</button> --}}
-	<button type="submit" class="btn btn-warning" {{action 'addNewContact'}} disabled={{nothingThere}}>Add New Contact</button>
-</div>
-
-
-<table class="table table-bordered table-hover">
-
-  <thead>
-	<tr>
-	  <th>ID</th>
-	  <th>Name</th>
-	  <th>Phone
-		<button {{action "toggleShowPhoneNumber"}} class="btn btn-xs {{if isShowingPhoneNumber 'btn-danger' 'btn-success'}}">
-		  {{if isShowingPhoneNumber 'Hide' 'Show'}}
-		</button>
-	  </th>
-	 <th>email address</th>
-	  <th></th>
-	</tr>
-  </thead>
-  <tbody>
-	{{#each model key="id" as |item|}}
-	  <tr>
-		<td>{{item.id}}</td>
-		<td>{{item.name}}</td>
-		<td>{{#if isShowingPhoneNumber}}{{item.phone}}{{/if}}</td>
-		<td>{{item.email}}</td>
-		<td>
-		  <button class="btn btn-xs btn-danger" {{action "deleteContact" item}}>Delete</button>
-		</td>
-	  </tr>
-	{{else}}
-	  <tr><td colspan="4" class="text-center">Please add your first contact to the list</td></tr>
-	{{/each}}
-  </tbody>
-</table>
 
 
 
@@ -68,10 +21,6 @@ new ember data...
 - computer properties..
 
  --}}
-
-
-
-
 
 
 

@@ -1,0 +1,24 @@
+  <thead>
+	<tr>
+	  <th>ID</th>
+	  <th>Name</th>
+	  <th>Phone
+		<button {{action "toggleShowPhoneNumber"}} class="btn btn-xs {{if isShowingPhoneNumber 'btn-danger' 'btn-success'}}">
+		  {{if isShowingPhoneNumber 'Hide' 'Show'}}
+		</button>
+	  </th>
+	 <th>email address</th>
+	  <th></th>
+	</tr>
+  </thead>
+  <tbody>
+	{{#each model key="id" as |item|}}
+		{{contacts/contact-row item=item}}
+	{{else}}
+		{{#if model.isUpdating}}
+			<tr><td colspan="4"><div class="spinner"></div></td></tr>
+		{{else}}
+			<tr><td colspan="4" class="text-center">Please add your first contact to the list</td></tr>
+		{{/if}}
+	{{/each}}
+  </tbody>
