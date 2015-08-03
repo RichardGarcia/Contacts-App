@@ -31,7 +31,7 @@ export default Ember.Component.extend({
 
 	actions: {
 		buttonClicked() {
-			if (this.get('nothingThere')) {return}
+			if (this.get('nothingThere')) {return;}
 
 			var name = this.get ('name');
 			var phone = this.get ('phone');
